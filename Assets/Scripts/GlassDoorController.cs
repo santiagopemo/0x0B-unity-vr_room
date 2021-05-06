@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GlassDoorController : MonoBehaviour
 {
-    private Animator animator;
+    public Animator animator;
     public GameObject player;
     public GameObject door;
     private float destDistance = 3f;
@@ -21,7 +21,6 @@ public class GlassDoorController : MonoBehaviour
     {
         if (Vector3.Distance(player.transform.position, door.transform.position) <= destDistance && isUnlocked)
         {
-            print("enter");
             if (animator.GetBool("character_nearby"))
                 animator.SetBool("character_nearby", false);
             else

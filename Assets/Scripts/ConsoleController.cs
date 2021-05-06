@@ -49,6 +49,7 @@ public class ConsoleController : MonoBehaviour
         if (combination.Equals(password))
         {
             doorController.isUnlocked = true;
+            doorController.animator.SetBool("character_nearby", true);
             doorLockedGO.SetActive(false);
             doorUnlockedGO.SetActive(true);
         }
