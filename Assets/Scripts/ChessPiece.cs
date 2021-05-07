@@ -5,8 +5,10 @@ using UnityEngine;
 public class ChessPiece : MonoBehaviour
 {
     public Transform boardSpot;
+    public ChessBoardController chessBoardController;
 
     private bool moveToBoard = false;
+    public bool inSpot = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,12 +23,14 @@ public class ChessPiece : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, boardSpot.position, 0.3f);
             // transform.rotation = Quaternion.Lerp(transform.rotation, boardSpot.rotation, 0.3f);
             transform.rotation = boardSpot.rotation;
-            if (Mathf.Abs(Vector3.Distance(transform.position, boardSpot.position)) <= 0.001f)
+            if (Mathf.Abs(Vector3.Distance(transform.position, boardSpot.position)) <= 0.01f)
             {
                 transform.parent = boardSpot;
                 moveToBoard = false;
                 GetComponent<Rigidbody>().useGravity = true;
                 GetComponent<Rigidbody>().isKinematic = false;
+                chessBoardController.CheckEmpySpots();
+                inSpot = true;
             }
         }
         
@@ -35,14 +39,15 @@ public class ChessPiece : MonoBehaviour
     public void StartMovingToBoard()
     {
         
-        if (GetComponent<PickUp>())
+        if (GetComponent<PickUp>() && moveToBoard == false)
         {
             GetComponent<PickUp>().OnPointerUpDelegate(null);
-            print("hayPcik");
+            GetComponent<PickUp>().eventTrigger.triggers.RemoveRange(0, GetComponent<PickUp>().eventTrigger.triggers.Count);
             GetComponent<PickUp>().enabled = false;
         }
         GetComponent<Rigidbody>().useGravity = false;
         GetComponent<Rigidbody>().isKinematic = true;
-        moveToBoard = true;        
+        moveToBoard = true;
+        // transform.parent = boardSpot;
     } 
 }

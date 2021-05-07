@@ -16,6 +16,7 @@ public class PickUp : MonoBehaviour
     private bool movingObject = false;
     private float destDistance = 1.5f;
     private bool reachable = false;
+    public EventTrigger eventTrigger;
     void Start()
     {
         defaultMaterial = GetComponent<MeshRenderer>().material;
@@ -25,7 +26,7 @@ public class PickUp : MonoBehaviour
 
     void SetEventTrigger()
     {
-        EventTrigger eventTrigger = this.gameObject.AddComponent<EventTrigger>();
+        eventTrigger = this.gameObject.AddComponent<EventTrigger>();
         // Pointer Enter
         EventTrigger.Entry pointerEnterEntry = new EventTrigger.Entry();
         pointerEnterEntry.eventID = EventTriggerType.PointerEnter;
@@ -129,6 +130,8 @@ public class PickUp : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if (other.GetComponent<ChessBoardTrigger>())
+            return;
         GetComponent<Collider>().isTrigger = false;
         GetComponent<MeshRenderer>().material = defaultMaterial;
         this.transform.parent = initialParent;

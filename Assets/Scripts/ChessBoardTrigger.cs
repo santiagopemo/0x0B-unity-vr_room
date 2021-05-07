@@ -19,23 +19,8 @@ public class ChessBoardTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        // if (other.tag == "Player")
-        // {
-        //     print("hay player items: " + playerHands.transform.childCount);
-        //     if (playerHands.transform.childCount > 0)
-        //     {
-        //         print("manos ocupadas");
-        //         GameObject item = playerHands.transform.GetChild(0).gameObject;
-        //         if (item.GetComponent<ChessPiece>())
-        //         {
-        //             print("hay ficha de ajedrez");
-        //             item.GetComponent<ChessPiece>().StartMovingToBoard();
-        //         }
-        //     }
-        // }
-        if (other.GetComponent<ChessPiece>())
+        if (other.GetComponent<ChessPiece>() && other.GetComponent<ChessPiece>().inSpot == false)
         {
-            print("hay ficha de ajedrez");
             other.GetComponent<ChessPiece>().StartMovingToBoard();
         }
     }

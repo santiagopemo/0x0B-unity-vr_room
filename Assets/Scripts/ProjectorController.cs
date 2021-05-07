@@ -7,6 +7,7 @@ public class ProjectorController : MonoBehaviour
     public GameObject player;
     public GameObject projectorParticles;
     private float destDistance = 3f;
+    public bool projectorReady = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +22,8 @@ public class ProjectorController : MonoBehaviour
 
     public void ChangeStateProjectorParticles()
     {
-        if (Vector3.Distance(player.transform.position, transform.position) <= destDistance)
+        if (Vector3.Distance(player.transform.position, transform.position) <= destDistance && projectorReady)
         {
-            print("projector");
             if (projectorParticles.activeInHierarchy)
                 projectorParticles.SetActive(false);
             else
