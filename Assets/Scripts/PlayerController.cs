@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
             int layer_mask = LayerMask.NameToLayer("Character");
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit _hit, layer_mask))
             {
-                if (_hit.transform.parent != null && _hit.transform.parent.transform.parent != null && _hit.transform.parent.transform.parent.name == "Floors")
+                if ((_hit.transform.parent != null && _hit.transform.parent.transform.parent != null && _hit.transform.parent.transform.parent.name == "Floors") || (_hit.transform.name == "Floors") )
                 {
                     pointerMR.material.color = Color.green;
                     teleport = true;

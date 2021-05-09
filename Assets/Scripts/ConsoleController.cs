@@ -10,8 +10,6 @@ public class ConsoleController : MonoBehaviour
     public GlassDoorController doorController;
     public GameObject doorLockedGO;
     public GameObject doorUnlockedGO;
-
-
     private string password = "120";
 
     // Start is called before the first frame update
@@ -25,7 +23,7 @@ public class ConsoleController : MonoBehaviour
     {
         
     }
-
+ 
     public void CheckPassword(GameObject btnGO)
     {
        AddOne(btnGO);

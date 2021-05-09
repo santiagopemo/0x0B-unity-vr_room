@@ -8,6 +8,7 @@ public class ProjectorController : MonoBehaviour
     public GameObject projectorParticles;
     private float destDistance = 3f;
     public bool projectorReady = false;
+    public MeshRenderer pointerMR;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,25 @@ public class ProjectorController : MonoBehaviour
     {
         
     }
+    public void OnPointerEnterDelegate()
+    {
+        if (Vector3.Distance(player.transform.position, transform.position) <= destDistance)
+        {
+            if (!projectorReady)
+            {
+                pointerMR.material.color = Color.black;
+            }
+            else
+            {
+                pointerMR.material.color = Color.yellow;
+            }
+        }
+    }
 
+    public void OnPointerExitDelegate()
+    {
+        pointerMR.material.color = Color.white;
+    }
     public void ChangeStateProjectorParticles()
     {
         if (Vector3.Distance(player.transform.position, transform.position) <= destDistance && projectorReady)

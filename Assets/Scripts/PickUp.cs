@@ -55,7 +55,7 @@ public class PickUp : MonoBehaviour
     
     public void OnPointerEnterDelegate(PointerEventData data)
     {
-        if (!reachable)
+        if (!(Vector3.Distance(dest.transform.position, transform.position) <= destDistance))
             return;
         if (grabed == false)
             GetComponent<MeshRenderer>().material = higligthedMaterial;
@@ -63,17 +63,18 @@ public class PickUp : MonoBehaviour
 
     public void OnPointerDownDelegate(PointerEventData data)
     {
-        if (!reachable)
+        if (!(Vector3.Distance(dest.transform.position, transform.position) <= destDistance))
             return;
         grabed = true;
         GetComponent<MeshRenderer>().material = defaultMaterial;
         GetComponent<Rigidbody>().isKinematic = true;
         GetComponent<Rigidbody>().useGravity = false;
+        //---------------------------------------
         // GetComponent<Collider>().isTrigger = true;
+        //---------------------------------------
         // this.transform.position = dest.position;
         this.transform.parent = dest.transform;
         movingObject = true;
-        // this.transform.position = Vector3.Lerp(transform.position, dest.position, 0.5f);
     }
 
     public void OnPointerUpDelegate(PointerEventData data)
@@ -99,6 +100,11 @@ public class PickUp : MonoBehaviour
         {
             // this.transform.position = Vector3.MoveTowards(transform.position, dest.position, 3.5f * Time.deltaTime);
             this.transform.position = Vector3.Lerp(transform.position, dest.position, 0.3f);
+            if (Mathf.Abs(Vector3.Distance(transform.position, dest.position)) <= 0.01f)
+            {
+                movingObject = false;
+                GetComponent<Collider>().isTrigger = true;
+            }
         }
         if (Input.GetButton("Fire3") && grabed)
         {
@@ -108,14 +114,14 @@ public class PickUp : MonoBehaviour
         {
             transform.Rotate(Input.GetAxis("Vertical2") * 100f * Time.deltaTime, Input.GetAxis("Horizontal2") * 100f * Time.deltaTime, 0);
         }
-        if (Vector3.Distance(dest.transform.position, transform.position) <= destDistance)
-        {
-            reachable = true;
-        }
-        else
-        {
-            reachable = false;
-        }
+        // if (Vector3.Distance(dest.transform.position, transform.position) <= destDistance)
+        // {
+        //     reachable = true;
+        // }
+        // else
+        // {
+        //     reachable = false;
+        // }
     }
 
     void ThrowObject()
@@ -130,7 +136,7 @@ public class PickUp : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<ChessBoardTrigger>())
+        if (other.GetComponent<ChessBoardTrigger>() || other.GetComponent<PlayerController>())
             return;
         GetComponent<Collider>().isTrigger = false;
         GetComponent<MeshRenderer>().material = defaultMaterial;

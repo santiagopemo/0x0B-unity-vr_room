@@ -11,6 +11,9 @@ public class Desktop : MonoBehaviour
     public GameObject canvasScreen2;
     public GameObject canvasScreen3;
     public GameObject canvasScreen4;
+    public GameObject player;
+    private float destDistance = 3f;
+    public MeshRenderer pointerMR;
 
     private bool deskOn = false;
     // Start is called before the first frame update
@@ -50,6 +53,8 @@ public class Desktop : MonoBehaviour
     private void OnPointerExitDelegate(PointerEventData data)
     {
         
+        pointerMR.material.color = Color.white;
+        
     }
 
     private void OnPointerUpDelegate(PointerEventData data)
@@ -59,25 +64,32 @@ public class Desktop : MonoBehaviour
 
     private void OnPointerClickDelegate(PointerEventData data)
     {
-        if (deskOn)
+        if (Vector3.Distance(player.transform.position, transform.position) <= destDistance)
         {
-            canvasScreen1.SetActive(false);
-            canvasScreen2.SetActive(false);
-            // canvasScreen3.SetActive(false);
-            canvasScreen4.SetActive(false);
+            if (deskOn)
+            {
+                canvasScreen1.SetActive(false);
+                canvasScreen2.SetActive(false);
+                // canvasScreen3.SetActive(false);
+                canvasScreen4.SetActive(false);
+                deskOn = false;
+            }
+            else
+            {
+                canvasScreen1.SetActive(true);
+                canvasScreen2.SetActive(true);
+                // canvasScreen3.SetActive(true);
+                canvasScreen4.SetActive(true);
+                deskOn = true;
+            }
         }
-        else
-        {
-            canvasScreen1.SetActive(true);
-            canvasScreen2.SetActive(true);
-            // canvasScreen3.SetActive(true);
-            canvasScreen4.SetActive(true);
-        }
-        deskOn = !deskOn;
     }
 
     private void OnPointerEnterDelegate(PointerEventData data)
     {
-        
+        if (Vector3.Distance(player.transform.position, transform.position) <= destDistance)
+        {
+            pointerMR.material.color = Color.yellow;
+        }
     }     
 }

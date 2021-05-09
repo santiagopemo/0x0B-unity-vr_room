@@ -1935,6 +1935,36 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1489055092}
+          m_MethodName: OnPointerEnterDelegate
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1489055092}
+          m_MethodName: OnPointerExitDelegate
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!65 &181923314
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2503,6 +2533,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 269374884}
+  - component: {fileID: 269374885}
   m_Layer: 0
   m_Name: Floors
   m_TagString: Floor
@@ -2526,6 +2557,19 @@ Transform:
   m_Father: {fileID: 1285060135}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &269374885
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269374883}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 20.60877, y: 0.23738384, z: 32.781837}
+  m_Center: {x: 3.9135914, y: 0.11832571, z: 10.1283455}
 --- !u!1001 &286262579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2703,6 +2747,7 @@ MonoBehaviour:
   player: {fileID: 136162904}
   projectorParticles: {fileID: 481769782}
   projectorReady: 0
+  pointerMR: {fileID: 726958388}
 --- !u!114 &301582344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2722,6 +2767,36 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 301582343}
           m_MethodName: ChangeStateProjectorParticles
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 301582343}
+          m_MethodName: OnPointerEnterDelegate
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 301582343}
+          m_MethodName: OnPointerExitDelegate
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3899,16 +3974,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0, g: 0.5283019, b: 0.35118333, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_NormalColor: {r: 0.15686275, g: 0.53333336, b: 0.8784314, a: 1}
+    m_HighlightedColor: {r: 0.5294118, g: 0.5249097, b: 0, a: 1}
+    m_PressedColor: {r: 0.15686275, g: 0.53333336, b: 0.8784314, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -3953,7 +4028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.15686275, g: 0.53333336, b: 0.8784314, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -8214,16 +8289,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0, g: 0.5283019, b: 0.35118333, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_NormalColor: {r: 0.15686275, g: 0.53333336, b: 0.8784314, a: 1}
+    m_HighlightedColor: {r: 0.5294118, g: 0.5249097, b: 0, a: 1}
+    m_PressedColor: {r: 0.15686275, g: 0.53333336, b: 0.8784314, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -8268,7 +8343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.15686275, g: 0.53333336, b: 0.8784314, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -9580,7 +9655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1033853729
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10609,15 +10684,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0705906c3356b1a48a7469e05dfaba4f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.642
+      value: 4.532
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0705906c3356b1a48a7469e05dfaba4f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 1.381
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0705906c3356b1a48a7469e05dfaba4f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 20.677
+      value: 21.29
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0705906c3356b1a48a7469e05dfaba4f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11319,6 +11394,43 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1152915295 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1411003019843990, guid: 423906e3a82141942aa314fe7f592788,
+    type: 3}
+  m_PrefabInstance: {fileID: 319671351}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1152915299
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152915295}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1152915300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152915295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de091f95ac9ddfd49b8380d27754adda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dest: {fileID: 524016993}
+  higligthedMaterial: {fileID: 2100000, guid: a87e85d9a4091b44ba9e682bd0ba378d, type: 2}
+  eventTrigger: {fileID: 0}
 --- !u!1001 &1153371272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13123,7 +13235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1341200068
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14789,6 +14901,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   player: {fileID: 136162904}
   door: {fileID: 1877151615}
+  higligthedMaterial: {fileID: 2100000, guid: a87e85d9a4091b44ba9e682bd0ba378d, type: 2}
   isUnlocked: 0
 --- !u!1 &1491069421
 GameObject:
@@ -15374,6 +15487,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fea6f8eea666334aaf9869ad8f7bcda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1551335524 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 156656, guid: bddb1706eb9e38c4c8aad9e975af8fba,
+    type: 3}
+  m_PrefabInstance: {fileID: 1612920259}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1551335529
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551335524}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1551335530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551335524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de091f95ac9ddfd49b8380d27754adda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dest: {fileID: 524016993}
+  higligthedMaterial: {fileID: 2100000, guid: a87e85d9a4091b44ba9e682bd0ba378d, type: 2}
+  eventTrigger: {fileID: 0}
 --- !u!1 &1552610298
 GameObject:
   m_ObjectHideFlags: 0
@@ -15617,7 +15767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1578873296
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17002,16 +17152,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0, g: 0.5283019, b: 0.35118333, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_NormalColor: {r: 0.15686275, g: 0.53333336, b: 0.8784314, a: 1}
+    m_HighlightedColor: {r: 0.5294118, g: 0.5249097, b: 0, a: 1}
+    m_PressedColor: {r: 0.15686275, g: 0.53333336, b: 0.8784314, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -17056,7 +17206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.15686275, g: 0.53333336, b: 0.8784314, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -19077,6 +19227,56 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1918928867}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1923579514 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 0705906c3356b1a48a7469e05dfaba4f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1106837993}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1923579518
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923579514}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0907536, y: 1.8896079, z: 0.51536614}
+  m_Center: {x: 0.0003681183, y: -0.000101983445, z: -0.0005442948}
+--- !u!54 &1923579519
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923579514}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1923579520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923579514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de091f95ac9ddfd49b8380d27754adda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dest: {fileID: 524016993}
+  higligthedMaterial: {fileID: 2100000, guid: a87e85d9a4091b44ba9e682bd0ba378d, type: 2}
+  eventTrigger: {fileID: 0}
 --- !u!1 &1938630358
 GameObject:
   m_ObjectHideFlags: 0
@@ -19816,6 +20016,8 @@ MonoBehaviour:
   canvasScreen2: {fileID: 1033853728}
   canvasScreen3: {fileID: 618578652}
   canvasScreen4: {fileID: 1578873295}
+  player: {fileID: 136162904}
+  pointerMR: {fileID: 726958388}
 --- !u!1 &2001524233
 GameObject:
   m_ObjectHideFlags: 0
