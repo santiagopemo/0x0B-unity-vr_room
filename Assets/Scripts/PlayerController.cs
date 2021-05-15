@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,6 +23,11 @@ public class PlayerController : MonoBehaviour
     public Transform torso;
     private float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
+    GameObject interactable;
+
+    GraphicRaycaster m_Raycaster;
+    PointerEventData m_PointerEventData;
+    EventSystem m_EventSystem;
     // private RaycastHit hit;
     // Start is called before the first frame update
     void Start()
@@ -48,6 +56,24 @@ public class PlayerController : MonoBehaviour
     }
     private void PlayerTeleportation()
     {
+        
+        if (Input.GetButtonDown("Fire1"))
+        {
+            if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit _hit))
+            {
+                interactable = _hit.transform.gameObject;
+                IPointerDownHandler clickHandler = interactable.GetComponent<IPointerDownHandler>();
+                clickHandler?.OnPointerDown(new PointerEventData(EventSystem.current));
+            }
+        }
+        if (Input.GetButtonUp("Fire1"))
+        {
+            if (interactable != null)
+            {
+                ExecuteEvents.Execute(interactable, new PointerEventData(EventSystem.current), ExecuteEvents.pointerUpHandler);
+                interactable = null;
+            }
+        }
         if (Input.GetButton("Fire2"))
         {
             int layer_mask = LayerMask.NameToLayer("Character");

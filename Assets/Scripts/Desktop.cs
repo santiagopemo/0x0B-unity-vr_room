@@ -19,13 +19,13 @@ public class Desktop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SetEventTrigger();
     }
 
     // Update is called once per frame
     void Update()
     {
-        SetEventTrigger();
+        
     }
 
     void SetEventTrigger()
@@ -39,7 +39,7 @@ public class Desktop : MonoBehaviour
 
         // Pointer click
         EventTrigger.Entry pointerDownEntry = new EventTrigger.Entry();
-        pointerDownEntry.eventID = EventTriggerType.PointerClick;
+        pointerDownEntry.eventID = EventTriggerType.PointerDown;
         pointerDownEntry.callback.AddListener((data) => {OnPointerClickDelegate((PointerEventData)data);});
         eventTrigger.triggers.Add(pointerDownEntry);
 
